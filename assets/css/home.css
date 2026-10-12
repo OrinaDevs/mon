@@ -1,0 +1,31 @@
+.hero {
+  background: linear-gradient(135deg, var(--mon-green) 0%, #0a3d21 100%);
+  color: #fff;
+  padding: 4rem 0;
+  border-bottom: 4px solid var(--mon-gold);
+}
+.hero .lead { max-width: 36rem; opacity: 0.92; }
+
+.category-tile {
+  display: block;
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid #dfe3e0;
+  border-top: 4px solid var(--mon-gold);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.category-tile:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  color: inherit;
+}
+.category-tile h3 { color: var(--mon-green); }
+
+.cta-band {
+  background: var(--bg-soft, #f5f6f4);
+  border-radius: 0.5rem;
+}

@@ -1,0 +1,57 @@
+:root {
+  --mon-green: #0d4f2a;
+  --mon-gold: #c69c2f;
+
+  /* Make Bootstrap's "primary" the brand green */
+  --bs-primary: #0d4f2a;
+  --bs-primary-rgb: 13, 79, 42;
+  --bs-link-color: #0d4f2a;
+  --bs-link-hover-color: #c69c2f;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--mon-green);
+  --bs-btn-border-color: var(--mon-green);
+  --bs-btn-hover-bg: #0a3d21;
+  --bs-btn-hover-border-color: #0a3d21;
+  --bs-btn-active-bg: #0a3d21;
+  --bs-btn-active-border-color: #0a3d21;
+}
+
+.btn-gold {
+  --bs-btn-bg: var(--mon-gold);
+  --bs-btn-border-color: var(--mon-gold);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: #a98324;
+  --bs-btn-hover-border-color: #a98324;
+  --bs-btn-hover-color: #fff;
+}
+
+.site-header { border-bottom: 3px solid var(--mon-gold); }
+.site-header .navbar-brand img { height: 56px; width: auto; }
+.site-header .nav-link { font-weight: 600; }
+.site-header .nav-link:hover { color: var(--mon-gold); }
+
+.site-footer { background: var(--mon-green); color: #fff; }
+
+.product-card .product-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f1f3f2;
+}
+
+.product-card .no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a948e;
+  font-size: 0.9rem;
+}
+
+.category-filter .btn { margin: 0 0.25rem 0.5rem 0; }
+
+.product-card { transition: box-shadow 0.15s ease; }
+.product-card:hover { box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12); }
+
+.site-header .nav-link.active { color: var(--mon-green); border-bottom: 2px solid var(--mon-gold); }
