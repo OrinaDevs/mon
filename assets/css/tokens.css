@@ -1,0 +1,43 @@
+/* ==========================================================================
+   tokens.css  Brand colours, type, shape, and Bootstrap variable overrides.
+   Change a value here and it changes everywhere.
+   ========================================================================== */
+:root {
+  /* Brand (sampled from the logo) */
+  --mon-green: #0d4f2a;
+  --mon-green-deep: #07331b;
+  --mon-green-soft: #e8f0ea;
+  --mon-gold: #c69c2f;
+  --mon-gold-deep: #a98324;
+
+  /* Neutrals */
+  --mon-ink: #17211b;
+  --mon-muted: #55625a;
+  --mon-line: #d8dfd9;
+  --mon-mist: #f3f5f2;
+  --mon-white: #ffffff;
+
+  /* Type: one family, weights do the work */
+  --mon-font: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Shape and rhythm */
+  --mon-radius: 3px;
+  --mon-section: clamp(3rem, 6vw, 5rem);
+
+  /* Bootstrap hooks */
+  --bs-body-font-family: var(--mon-font);
+  --bs-body-color: var(--mon-ink);
+  --bs-body-bg: var(--mon-white);
+  --bs-secondary-color: var(--mon-muted);
+  --bs-border-color: var(--mon-line);
+  --bs-border-radius: var(--mon-radius);
+  --bs-border-radius-sm: 2px;
+  --bs-border-radius-lg: 4px;
+  --bs-primary: #0d4f2a;
+  --bs-primary-rgb: 13, 79, 42;
+  --bs-success-rgb: 13, 79, 42;           /* "In stock" badges use the brand green */
+  --bs-link-color: var(--mon-green);
+  --bs-link-color-rgb: 13, 79, 42;        /* Bootstrap colours links from the -rgb values */
+  --bs-link-hover-color: var(--mon-green-deep);
+  --bs-link-hover-color-rgb: 7, 51, 27;
+}

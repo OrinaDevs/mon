@@ -19,17 +19,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!csrf_check()) {
         $error = 'Session expired. Please try again.';
+    } elseif (login_is_locked($username)) {
+        $error = 'Too many failed attempts. Please try again in ' . LOCKOUT_MINUTES . ' minutes.';
     } else {
         $stmt = db()->prepare('SELECT id, password_hash FROM admins WHERE username = ?');
         $stmt->execute([$username]);
         $admin = $stmt->fetch();
 
         if ($admin && password_verify($password, $admin['password_hash'])) {
-            session_regenerate_id(true);   // prevents session fixation
-            $_SESSION['admin_id'] = $admin['id'];
+            login_clear_attempts($username);
+            admin_log_in((int) $admin['id']);
             header('Location: ' . BASE_URL . '/admin/');
             exit;
         }
+
+        login_record_failure($username);
         // Same message for wrong username or wrong password.
         $error = 'Invalid username or password.';
     }

@@ -22,6 +22,7 @@ require __DIR__ . '/../includes/admin_header.php';
   </div>
   <a href="<?= BASE_URL ?>/admin/products.php" class="btn btn-primary">Manage products</a>
   <a href="<?= BASE_URL ?>/admin/product-add.php" class="btn btn-gold">Add product</a>
+  <a href="<?= BASE_URL ?>/admin/categories.php" class="btn btn-outline-primary">Categories</a>
 </main>
 
 <?php require __DIR__ . '/../includes/admin_footer.php'; ?>

@@ -1,31 +1,42 @@
+/* ==========================================================================
+   home.css  Home page only: hero, category index, facts strip.
+   ========================================================================== */
 .hero {
-  background: linear-gradient(135deg, var(--mon-green) 0%, #0a3d21 100%);
-  color: #fff;
-  padding: 4rem 0;
+  background: var(--mon-green); color: #fff;
   border-bottom: 4px solid var(--mon-gold);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
 }
-.hero .lead { max-width: 36rem; opacity: 0.92; }
+.hero h1 { margin-bottom: 1rem; color: #fff; font-size: clamp(2.1rem, 4.6vw, 3.35rem); }
+.hero .lead { max-width: 46ch; margin-bottom: 1.75rem; color: rgba(255, 255, 255, 0.9); font-size: 1.15rem; }
 
-.category-tile {
-  display: block;
-  height: 100%;
-  padding: 1.5rem;
-  border: 1px solid #dfe3e0;
-  border-top: 4px solid var(--mon-gold);
-  border-radius: 0.5rem;
-  background: #fff;
-  color: inherit;
-  text-decoration: none;
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
+/* The product range, listed in the hero as an index */
+.category-index {
+  padding: 1.5rem 1.75rem 0.5rem;
+  background: var(--mon-white); color: var(--mon-ink); border-radius: var(--mon-radius);
 }
-.category-tile:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-  color: inherit;
+.category-index h2 { margin-bottom: 0.25rem; font-size: 1.1rem; }
+.category-index ul { margin: 0; padding: 0; list-style: none; }
+.category-index li + li { border-top: 1px solid var(--mon-line); }
+.category-index a {
+  display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 1rem;
+  padding: 1rem 0; color: inherit; text-decoration: none;
 }
-.category-tile h3 { color: var(--mon-green); }
+.category-index .ci-name { font-size: 1.05rem; font-weight: 700; color: var(--mon-green); }
+.category-index .ci-count { align-self: center; font-size: 0.875rem; color: var(--mon-muted); white-space: nowrap; }
+.category-index .ci-desc { grid-column: 1 / -1; font-size: 0.9rem; color: var(--mon-muted); }
+.category-index a:hover .ci-name { text-decoration: underline; text-underline-offset: 3px; }
 
-.cta-band {
-  background: var(--bg-soft, #f5f6f4);
-  border-radius: 0.5rem;
+/* Facts strip under the hero */
+.facts { background: var(--mon-white); border-bottom: 1px solid var(--mon-line); }
+.facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.fact { padding: 1.5rem; }
+.fact:first-child { padding-left: 0; }
+.fact + .fact { border-left: 1px solid var(--mon-line); }
+.fact h2 { margin: 0 0 0.25rem; font-size: 1rem; }
+.fact p { margin: 0; font-size: 0.95rem; color: var(--mon-muted); }
+
+@media (max-width: 767.98px) {
+  .facts-grid { grid-template-columns: 1fr; }
+  .fact { padding: 1rem 0; }
+  .fact + .fact { border-left: 0; border-top: 1px solid var(--mon-line); }
 }

@@ -1,0 +1,65 @@
+/* ==========================================================================
+   base.css  Typography, buttons, forms. Shared by the public site and admin.
+   ========================================================================== */
+body {
+  font-family: var(--mon-font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+h1, .h1 { font-weight: 800; letter-spacing: -0.025em; }
+
+a { text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+:focus-visible { outline: 3px solid var(--mon-gold-deep); outline-offset: 2px; }
+
+/* Buttons */
+.btn { font-weight: 600; letter-spacing: 0.01em; padding: 0.6rem 1.2rem; }
+.btn-sm { padding: 0.4rem 0.9rem; }
+.btn-lg { padding: 0.8rem 1.6rem; font-size: 1rem; }
+
+.btn-primary {
+  --bs-btn-bg: var(--mon-green);
+  --bs-btn-border-color: var(--mon-green);
+  --bs-btn-hover-bg: var(--mon-green-deep);
+  --bs-btn-hover-border-color: var(--mon-green-deep);
+  --bs-btn-active-bg: var(--mon-green-deep);
+  --bs-btn-active-border-color: var(--mon-green-deep);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--mon-green);
+  --bs-btn-border-color: var(--mon-green);
+  --bs-btn-hover-bg: var(--mon-green);
+  --bs-btn-hover-border-color: var(--mon-green);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--mon-green-deep);
+  --bs-btn-active-border-color: var(--mon-green-deep);
+  --bs-btn-active-color: #fff;
+}
+
+/* Gold buttons use dark green text: white on gold is too low in contrast. */
+.btn-gold {
+  --bs-btn-color: var(--mon-green-deep);
+  --bs-btn-bg: var(--mon-gold);
+  --bs-btn-border-color: var(--mon-gold);
+  --bs-btn-hover-color: var(--mon-green-deep);
+  --bs-btn-hover-bg: #d6ac3e;
+  --bs-btn-hover-border-color: #d6ac3e;
+  --bs-btn-active-color: var(--mon-green-deep);
+  --bs-btn-active-bg: var(--mon-gold-deep);
+  --bs-btn-active-border-color: var(--mon-gold-deep);
+}
+
+/* Forms */
+.form-control, .form-select { border-color: #b9c3bb; }
+.form-control:focus, .form-select:focus {
+  border-color: var(--mon-green);
+  box-shadow: 0 0 0 0.2rem rgba(13, 79, 42, 0.18);
+}

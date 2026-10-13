@@ -1,0 +1,72 @@
+/* ==========================================================================
+   components.css  Reusable pieces: product cards, search, pagination,
+   data lists, ordering steps, call-to-action band.
+   ========================================================================== */
+
+/* Product images (cards and the detail page) */
+.product-img {
+  display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  background: var(--mon-mist);
+}
+.no-image { display: flex; align-items: center; justify-content: center; color: var(--mon-muted); font-size: 0.875rem; }
+
+/* Product card */
+.product-card {
+  border: 1px solid var(--mon-line); border-radius: var(--mon-radius);
+  background: var(--mon-white); overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+.product-card:hover { border-color: var(--mon-green); }
+.product-card > a { color: inherit; text-decoration: none; }
+.product-card .card-body { padding: 1rem 1.1rem 1.15rem; }
+.product-card .card-title { line-height: 1.3; }
+
+/* Search and category filter */
+.search-form { max-width: 560px; }
+.category-filter .btn { margin: 0 0.25rem 0.5rem 0; }
+
+/* Pagination */
+.pagination {
+  --bs-pagination-color: var(--mon-green);
+  --bs-pagination-hover-color: var(--mon-green-deep);
+  --bs-pagination-focus-color: var(--mon-green-deep);
+  --bs-pagination-active-bg: var(--mon-green);
+  --bs-pagination-active-border-color: var(--mon-green);
+}
+
+/* Label and value rows (About and Contact) */
+.data-list { margin: 0; }
+.data-list > div {
+  display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem;
+  padding: 0.9rem 0; border-top: 1px solid var(--mon-line);
+}
+.data-list > div:last-child { border-bottom: 1px solid var(--mon-line); }
+.data-list dt { font-weight: 600; color: var(--mon-muted); }
+.data-list dd { margin: 0; }
+
+/* How to order: a real sequence, so the numbers carry meaning */
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  margin: 0; padding: 0; list-style: none; counter-reset: step;
+}
+.steps li { counter-increment: step; padding-top: 1rem; border-top: 3px solid var(--mon-green); }
+.steps li::before {
+  content: counter(step); display: block; margin-bottom: 0.6rem;
+  font-size: 2rem; font-weight: 800; line-height: 1; color: var(--mon-gold-deep);
+}
+.steps h3 { margin-bottom: 0.35rem; font-size: 1.1rem; }
+.steps p { margin: 0; color: var(--mon-muted); }
+
+/* Call-to-action band */
+.cta-band {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  background: var(--mon-green); color: #fff; border-radius: var(--mon-radius);
+}
+.cta-band h2 { margin-bottom: 0.35rem; color: #fff; font-size: 1.6rem; }
+.cta-band p { margin: 0; max-width: 52ch; color: rgba(255, 255, 255, 0.86); }
+
+@media (max-width: 767.98px) {
+  .steps { grid-template-columns: 1fr; gap: 1.5rem; }
+  .data-list > div { grid-template-columns: 6rem 1fr; gap: 0.75rem; }
+}

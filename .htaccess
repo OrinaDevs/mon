@@ -1,0 +1,29 @@
+# ---- Errors and folders ---------------------------------------------------
+# This path starts at the web root: '/mon/404.php' locally, '/404.php' on the live host.
+ErrorDocument 404 /mon/404.php
+Options -Indexes
+AddType application/manifest+json .webmanifest
+
+# ---- Files for search engines (built by PHP so they always match the database)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
+  RewriteRule ^robots\.txt$ robots.php [L]
+
+  # LIVE HOST ONLY: remove the # from the next three lines once the SSL certificate is active.
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---- Speed: compression and browser caching (both help search ranking) ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png  "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType image/vnd.microsoft.icon "access plus 30 days"
+</IfModule>

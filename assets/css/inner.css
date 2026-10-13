@@ -1,0 +1,12 @@
+/* ==========================================================================
+   inner.css  About and Contact pages.
+   ========================================================================== */
+.prose p { max-width: 65ch; }
+.prose .lead { font-size: 1.25rem; font-weight: 500; }
+
+.supply-item { height: 100%; padding-top: 1rem; border-top: 3px solid var(--mon-green); }
+.supply-item h3 { margin-bottom: 0.4rem; font-size: 1.25rem; }
+.supply-item p { color: var(--mon-muted); }
+
+.info-panel { padding: 1.75rem; background: var(--mon-mist); border-radius: var(--mon-radius); }
+.info-panel h2 { font-size: 1.25rem; }

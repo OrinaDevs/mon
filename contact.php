@@ -1,58 +1,73 @@
 <?php
 require __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/includes/seo_helpers.php';
 
 $page_title = 'Contact';
+$active_nav = 'contact';
+$extra_css = ['inner.css'];
+$meta_description = 'Contact Merchant of Nairobi by WhatsApp, phone or email to check stock, price and delivery.';
+$canonical_path = '/contact.php';
+$schema = [business_schema()];
+
 require __DIR__ . '/includes/header.php';
+
+$banner_title = 'Contact us';
+$banner_text  = 'The fastest way to reach us is WhatsApp or a phone call.';
+require __DIR__ . '/includes/page_banner.php';
 ?>
 
-<main class="container py-5" style="max-width: 860px;">
-  <h1 class="mb-2">Contact us</h1>
-  <p class="text-muted mb-4">The fastest way to reach us is WhatsApp or a phone call.</p>
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <h2 class="h3 mb-3">Reach us</h2>
+          <dl class="data-list">
+            <div>
+              <dt>WhatsApp</dt>
+              <dd>
+                <a href="<?= e(whatsapp_link('Hello, I would like to make an enquiry.')) ?>"
+                   target="_blank" rel="noopener">Start a chat</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>
+                <?php foreach (SHOP_PHONES as $i => $phone): ?>
+                  <?= $i > 0 ? ' / ' : '' ?><a href="tel:<?= e($phone['intl']) ?>"><?= e($phone['display']) ?></a>
+                <?php endforeach; ?>
+              </dd>
+            </div>
+            <div><dt>Email</dt><dd><a href="mailto:<?= e(SHOP_EMAIL) ?>"><?= e(SHOP_EMAIL) ?></a></dd></div>
+            <div><dt>Location</dt><dd><?= e(SHOP_LOCATION) ?></dd></div>
+            <div><dt>Hours</dt><dd><?= e(SHOP_HOURS) ?></dd></div>
+          </dl>
 
-  <div class="row g-4">
-    <div class="col-md-6">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h2 class="h5">Get in touch</h2>
-          <ul class="list-unstyled mb-4">
-            <li class="mb-2">
-              <strong>Phone:</strong>
-              <a href="tel:<?= e(SHOP_PHONE_INTL) ?>"><?= e(SHOP_PHONE) ?></a>
-            </li>
-            <li class="mb-2">
-              <strong>Email:</strong>
-              <a href="mailto:<?= e(SHOP_EMAIL) ?>"><?= e(SHOP_EMAIL) ?></a>
-            </li>
-            <li class="mb-2"><strong>Location:</strong> <?= e(SHOP_LOCATION) ?></li>
-            <li><strong>Hours:</strong> <?= e(SHOP_HOURS) ?></li>
-          </ul>
-
-          <div class="d-flex flex-wrap gap-2">
+          <div class="d-flex flex-wrap gap-2 mt-4">
             <a href="<?= e(whatsapp_link('Hello, I would like to make an enquiry.')) ?>"
-               class="btn btn-gold" target="_blank" rel="noopener">Chat on WhatsApp</a>
-            <a href="tel:<?= e(SHOP_PHONE_INTL) ?>" class="btn btn-outline-primary">Call us</a>
+               class="btn btn-gold btn-lg" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <?php foreach (SHOP_PHONES as $phone): ?>
+              <a href="tel:<?= e($phone['intl']) ?>" class="btn btn-outline-primary btn-lg">Call <?= e($phone['display']) ?></a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="info-panel">
+            <h2>Ordering and delivery</h2>
+            <p>
+              Found something you like? Open the product and use <em>Enquire on WhatsApp</em>,
+              or message us the product name.
+            </p>
+            <p class="mb-0">
+              We deliver countrywide. Include your town or county so we can give you delivery details.
+            </p>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="col-md-6">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h2 class="h5">Ordering and delivery</h2>
-          <p>
-            Found something you like? Open the product and tap
-            <em>Enquire on WhatsApp</em>, or message us the product name.
-          </p>
-          <p class="mb-0">
-            We deliver countrywide. Include your town or county so we can give you
-            delivery details.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 </main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

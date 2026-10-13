@@ -2,8 +2,7 @@
 <div class="card product-card h-100">
   <a href="<?= BASE_URL ?>/product.php?slug=<?= e($p['slug']) ?>">
     <?php if ($p['image']): ?>
-      <img src="<?= BASE_URL ?>/uploads/products/<?= e($p['image']) ?>"
-           class="product-img" alt="<?= e($p['name']) ?>">
+      <img src="<?= BASE_URL ?>/uploads/products/<?= e($p['image']) ?>" class="product-img" alt="<?= e($p['name']) ?>" loading="lazy">
     <?php else: ?>
       <div class="product-img no-image">No image</div>
     <?php endif; ?>

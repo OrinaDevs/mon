@@ -40,3 +40,19 @@ function whatsapp_link(string $message): string
 {
     return 'https://wa.me/' . WHATSAPP_NUMBER . '?text=' . rawurlencode($message);
 }
+
+function unique_category_slug(string $name, int $ignoreId = 0): string
+{
+    $base = slugify($name);
+    $slug = $base;
+    $i = 2;
+    $stmt = db()->prepare('SELECT COUNT(*) FROM categories WHERE slug = ? AND id <> ?');
+
+    while (true) {
+        $stmt->execute([$slug, $ignoreId]);
+        if ((int) $stmt->fetchColumn() === 0) {
+            return $slug;
+        }
+        $slug = $base . '-' . $i++;
+    }
+}
